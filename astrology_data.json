@@ -1,0 +1,24 @@
+{
+    "signs": [
+      {
+        "name": "星座1",
+        "start_age": 0,
+        "end_age": 2.43,
+        "description": "星座1の解説です。"
+      },
+      {
+        "name": "星座2",
+        "start_age": 2.44,
+        "end_age": 4.86,
+        "description": "星座2の解説です。"
+      },
+      {
+        "name": "星座3",
+        "start_age": 4.87,
+        "end_age": 7.30,
+        "description": "星座3の解説です。"
+      }
+      
+    ]
+  }
+  
