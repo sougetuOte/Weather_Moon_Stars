@@ -1,9 +1,14 @@
 import requests
 from datetime import datetime, timedelta
 from config import read_config
+import wx
 
+# 天気予報を取得する
 def get_weather_forecast(city_name, days_from_today=0):
     API_KEY, _ = read_config()
+    if API_KEY is None:
+        wx.MessageBox("APIキーが設定されていません。", "エラー", wx.OK | wx.ICON_ERROR)
+        return None
     base_url = "https://api.openweathermap.org/data/2.5/forecast"
     params = {
         'q': city_name,
@@ -20,7 +25,7 @@ def get_weather_forecast(city_name, days_from_today=0):
         target_date = datetime.now().date() + timedelta(days=days_from_today)
         target_datetime = datetime(target_date.year, target_date.month, target_date.day)
         
-        for hour_offset in range(0, 24, 3):
+        for hour_offset in range(0, 24, 3): # 3時間おきに天気を取得する
             target_time = target_datetime + timedelta(hours=hour_offset)
             for item in data['list']:
                 timestamp = item['dt_txt']
@@ -37,8 +42,3 @@ def get_weather_forecast(city_name, days_from_today=0):
     
     else:
         return f"エラー: {response.status_code}"
-
-if __name__ == "__main__":
-    city_name = input("都市名を日本語またはアルファベットで入力してください: ")
-    forecast = get_weather_forecast(city_name)
-    print(forecast)
