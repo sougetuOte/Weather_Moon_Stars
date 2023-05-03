@@ -1,17 +1,17 @@
 import os
 import json
-from config import ASTROLOGY_DATA_FILE_PATH
+from config import read_config
 from moon_age import calculate_moon_age
 
-def load_astrology_data(file_path):
-    with open(file_path, "r", encoding="utf-8") as f:
+def load_astrology_data():
+    _, astrology_data_file = read_config()
+    with open(astrology_data_file, "r", encoding="utf-8") as f:
         return json.load(f)
-
-ASTROLOGY_DATA = load_astrology_data(ASTROLOGY_DATA_FILE_PATH)
 
 def get_moon_astrology():
     moon_age = calculate_moon_age()
     moon_astrology = None
+    ASTROLOGY_DATA = load_astrology_data()
     for sign in ASTROLOGY_DATA["signs"]:
         if sign["start_age"] <= moon_age <= sign["end_age"]:
             moon_astrology = sign

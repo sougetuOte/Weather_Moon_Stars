@@ -17,3 +17,5 @@ area copy.json
 area_json.py
 area_test.json
 area.json
+app_config copy.ini
+app_config copy 2.ini

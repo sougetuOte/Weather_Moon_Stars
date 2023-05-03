@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import math
 
 def julian_day(date):
@@ -12,9 +12,9 @@ def julian_day(date):
     B = 2 - A + math.floor(A / 4)
     return math.floor(365.25 * (y + 4716)) + math.floor(30.6001 * (m + 1)) + d + B - 1524.5
 
-
-def calculate_moon_age():
-    date = datetime.now()
+def calculate_moon_age(date=None):
+    if date is None:
+        date = datetime.now()
     jd = julian_day(date)
     T = (jd - 2451550.1) / 36525
     T2 = T * T
