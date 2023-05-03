@@ -11,6 +11,8 @@ class WeatherForecastFrame(wx.Frame):
         self.init_ui()
         
     def init_ui(self):
+        self.SetSize(500, 700)
+
         panel = wx.Panel(self)
         vbox = wx.BoxSizer(wx.VERTICAL)
         
