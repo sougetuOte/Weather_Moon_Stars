@@ -1,6 +1,13 @@
 # お空の窓
 日本の天気予報と月星座、その解説を表示するプログラム
 
+# 入手方法
+https://github.com/sougetuOte/Weather_Moon_Stars
+からgit cloneするか、インストーラをダウンロードしてください。
+https://www.amateur-magician.life/
+からもインストーラをダウンロード可能です。
+ネットに詳しくない人はこちらかの方が楽かも知れません。
+
 # ライセンス
 Copyright (c) 2023 sougetuOte
 Released under the MIT license
