@@ -1,5 +1,6 @@
 import configparser
 
+# iniファイルから設定を読み込む
 def read_config():
     config = configparser.ConfigParser()
     config.read("app_config.ini")

@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 import math
 
+# ユリウス年を計算する関数 https://ja.wikipedia.org/wiki/ユリウス年
 def julian_day(date):
     y = date.year
     m = date.month
@@ -12,6 +13,7 @@ def julian_day(date):
     B = 2 - A + math.floor(A / 4)
     return math.floor(365.25 * (y + 4716)) + math.floor(30.6001 * (m + 1)) + d + B - 1524.5
 
+# 月齢を計算する関数
 def calculate_moon_age(date=None):
     if date is None:
         date = datetime.now()

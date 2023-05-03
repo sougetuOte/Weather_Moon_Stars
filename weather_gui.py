@@ -4,6 +4,7 @@ from moon_age import calculate_moon_age
 from astrology import get_moon_astrology
 from clipboard import copy_to_clipboard
 
+# 天気予報を表示するGUI
 class WeatherForecastFrame(wx.Frame):
     def __init__(self, parent, title):
         super().__init__(parent, title=title, size=(600, 700))
