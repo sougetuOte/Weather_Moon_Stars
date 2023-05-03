@@ -1,0 +1,13 @@
+There are two installation methods.
+
+1. if you downloaded osorano-mado.msi
+1-1.Double-click the file to run the installation.
+1-2.Obtain and save the OpenWeather API_KEY. Please search the internet to find out how to obtain it.
+1-3.After starting the programme, enter the name of the city and specify the date for the data you want. Finally, press the button and the data will be pasted into the text area and clipboard.
+
+2.To clone from GitHub
+2-1.Create a python environment, 3 or higher and newer
+2-2.Install wxPython with the following command. (this is for Windows)
+    pip install -U wxPython
+2-3.Install any missing modules
+2-4.Start from main.py

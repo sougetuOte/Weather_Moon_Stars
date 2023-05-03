@@ -38,3 +38,7 @@ astrology_data.json:占星術の星座についてのデータが格納されて
 app_config.ini:OpenWeatherのAPIキーと占星術データのファイル名を記載します。
 README.md:このファイルです。
 install.txtインストール方法が記載されています。
+
+# 連絡先
+Twitter：https://twitter.com/ETM08214742
+e-mail：magician@amateur-magician.life
