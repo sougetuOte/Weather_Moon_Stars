@@ -19,3 +19,19 @@ area_test.json
 area.json
 app_config copy.ini
 app_config copy 2.ini
+osorano-mado.spec
+build/osorano-mado/Analysis-00.toc
+build/osorano-mado/base_library.zip
+build/osorano-mado/osorano-mado.exe.manifest
+build/osorano-mado/osorano-mado.pkg
+build/osorano-mado/PKG-00.toc
+build/osorano-mado/PYZ-00.pyz
+build/osorano-mado/PYZ-00.toc
+build/osorano-mado/warn-osorano-mado.txt
+build/osorano-mado/xref-osorano-mado.html
+build/osorano-mado/localpycs/pyimod01_archive.pyc
+build/osorano-mado/localpycs/pyimod02_importers.pyc
+build/osorano-mado/localpycs/pyimod03_ctypes.pyc
+build/osorano-mado/localpycs/pyimod04_pywin32.pyc
+build/osorano-mado/localpycs/struct.pyc
+dist/osorano-mado.exe.notanexecutable
