@@ -3,9 +3,9 @@
 
 # 入手方法
 https://github.com/sougetuOte/Weather_Moon_Stars
-からgit cloneするか、インストーラをダウンロードしてください。
+からgit cloneするか、zipファイルをダウンロードしてください。
 https://www.amateur-magician.life/
-からもインストーラをダウンロード可能です。
+からもzipファイルをダウンロード可能です。
 ネットに詳しくない人はこちらかの方が楽かも知れません。
 
 # ライセンス

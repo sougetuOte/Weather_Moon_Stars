@@ -3,9 +3,9 @@ A program that displays the weather forecast for Japan, the moon constellations,
 
 # How to get it
 https://github.com/sougetuOte/Weather_Moon_Stars
-Please git clone or download the installer from
-You can also download the installer from https://www.amateur-magician.life/
-You can also download the installer from
+You can git clone or download the zip file from
+You can also download the zip file from https://www.amateur-magician.life/
+You can also download the zip file from .
 If you are not familiar with the Internet, this may be easier.
 
 # License
