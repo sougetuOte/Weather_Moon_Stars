@@ -38,3 +38,10 @@ dist/osorano-mado.exe.notanexecutable
 build/osorano-mado/EXE-00.toc
 dist/osorano-mado.exe
 .gitignore
+dist/app_config.ini
+dist/astrology_data.json
+dist/install_en.txt
+dist/install.txt
+dist/README.md
+dist/READMEen.md
+dist/osorano-mado.zip
