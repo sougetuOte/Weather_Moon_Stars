@@ -35,3 +35,6 @@ build/osorano-mado/localpycs/pyimod03_ctypes.pyc
 build/osorano-mado/localpycs/pyimod04_pywin32.pyc
 build/osorano-mado/localpycs/struct.pyc
 dist/osorano-mado.exe.notanexecutable
+build/osorano-mado/EXE-00.toc
+dist/osorano-mado.exe
+.gitignore
