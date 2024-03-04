@@ -1,5 +1,4 @@
-from datetime import datetime, timedelta
-import math
+from datetime import datetime
 import ephem
 
 # 月齢を計算する関数
