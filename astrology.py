@@ -1,7 +1,6 @@
-import os
 import json
 from config import read_config
-from moon_age import calculate_moon_age
+import ephem
 
 # 星座データを読み込む
 def load_astrology_data():
@@ -9,17 +8,27 @@ def load_astrology_data():
     with open(astrology_data_file, "r", encoding="utf-8") as f:
         return json.load(f)
 
-# 月の星座を取得する
-def get_moon_astrology():
-    moon_age = calculate_moon_age()
-    moon_astrology = None
-    ASTROLOGY_DATA = load_astrology_data()
-    for sign in ASTROLOGY_DATA["signs"]:
-        if sign["start_age"] <= moon_age <= sign["end_age"]:
-            moon_astrology = sign
-            break
+# 月星座の計算
+def get_moon_sign(date=None):
+    if date is None:
+        date = ephem.now()
+    moon = ephem.Moon(date)
+    ecliptic_lon = ephem.Ecliptic(moon).lon
+    sign, description = determine_sign(ecliptic_lon)
+    return sign, description
 
-    if moon_astrology:
-        return moon_astrology["name"], moon_astrology["description"]
-    else:
-        return "不明", "月星座が見つかりませんでした。"
+def determine_sign(longitude):
+    # 黄道座標の経度（ラジアン）を度に変換
+    long_deg = float(longitude) * 180.0 / ephem.pi
+    astrology_data = load_astrology_data()
+    
+    for sign in astrology_data["signs"]:
+        if sign["start_age"] <= long_deg < sign["end_age"]:
+            return sign["name"], sign["description"]
+    
+    # 万が一のためのデフォルト値
+    return "不明", "星座の情報が見つかりませんでした。"
+
+# 現在の月星座とその解説を取得する例
+sign, description = get_moon_sign()
+print(f"月星座: {sign}, 解説: {description}\n")

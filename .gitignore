@@ -1,3 +1,4 @@
+.venv/
 __pycache__/astrology.cpython-39.pyc
 __pycache__/clipboard.cpython-39.pyc
 __pycache__/config.cpython-39.pyc

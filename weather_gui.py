@@ -1,8 +1,10 @@
 import wx
-from weather_api import get_weather_forecast
-from moon_age import calculate_moon_age
-from astrology import get_moon_astrology
+from weather_api import get_weather_forcast
+from moon_age import get_moon_age
+from astrology import get_moon_sign
 from clipboard import copy_to_clipboard
+from datetime import datetime
+from config import read_config
 
 # 天気予報を表示するGUI
 class WeatherForecastFrame(wx.Frame):
@@ -15,22 +17,18 @@ class WeatherForecastFrame(wx.Frame):
         hbox1 = wx.BoxSizer(wx.HORIZONTAL)
         self.st1 = wx.StaticText(panel, label="都市名:")
         hbox1.Add(self.st1, flag=wx.RIGHT, border=8)
-        self.tc = wx.TextCtrl(panel)
+        self.tc = wx.TextCtrl(panel, value="東京都")
         hbox1.Add(self.tc, proportion=1)
         vbox.Add(hbox1, flag=wx.EXPAND | wx.LEFT | wx.RIGHT | wx.TOP, border=10)
 
         vbox.Add((-1, 10))
 
         hbox2 = wx.BoxSizer(wx.HORIZONTAL)
-        self.date_selector = wx.RadioBox(
-            panel, label="日付", choices=["今日", "明日", "明後日"], majorDimension=3, style=wx.RA_SPECIFY_ROWS
-        )
-        hbox2.Add(self.date_selector)
-        vbox.Add(hbox2, flag=wx.EXPAND | wx.LEFT | wx.RIGHT | wx.TOP, border=10)
-        self.btn1 = wx.Button(panel, label="検索", size=(70, 30))
-        hbox2.Add(self.btn1)
+        self.btn1 = wx.Button(panel, label="実行", size=(70, 30))
+        hbox2.Add(self.btn1, flag=wx.RIGHT, border=10)  # ボタン間の間隔を設定
         self.btn2 = wx.Button(panel, label="コピー", size=(70, 30))
-        hbox2.Add(self.btn2, flag=wx.LEFT | wx.BOTTOM, border=5)
+        hbox2.Add(self.btn2)
+        vbox.Add(hbox2, flag=wx.LEFT | wx.RIGHT | wx.TOP, border=10)
 
         vbox.Add((-1, 10))
 
@@ -48,20 +46,24 @@ class WeatherForecastFrame(wx.Frame):
 
     def on_search(self, event):
         city_name = self.tc.GetValue()
-        selected_day = self.date_selector.GetSelection()
-        forecast = get_weather_forecast(city_name, selected_day)
-        moon_age = calculate_moon_age()
-        moon_astrology_name, moon_astrology_desc = get_moon_astrology()
+        designated_date =  datetime.today()  # ローカルな現在の日付と時刻を取得
+        formatted_date = designated_date.strftime('%Y/%m/%d %H:%M:%S')  # 秒までの表示にフォーマット
+
+        API_KEY, _ = read_config()
+
+        forecast =  get_weather_forcast(city_name,designated_date,API_KEY)
+        moon_age = get_moon_age()
+        moon_astrology_name, moon_astrology_desc = get_moon_sign()
 
         if forecast:
-            self.st2.SetValue(f"{city_name}の天気予報 ({['今日', '明日', '明後日'][selected_day]}): {forecast}\n\n月齢: {moon_age:.2f}\n月の{moon_astrology_name}: {moon_astrology_desc}")
+            self.st2.SetValue(f"{city_name}の天気予報 ({formatted_date}):\n{forecast}\n\n月齢: {moon_age:.2f}\n月の{moon_astrology_name}: {moon_astrology_desc}")
         else:
             wx.MessageBox("天気予報の取得に失敗しました。", "エラー", wx.OK | wx.ICON_ERROR)
 
     def on_copy(self, event):
-        text = self.st2.GetLabel()
+        text = self.st2.GetValue()  # st2からテキストを取得するためにGetValueを使用
         if text:
             copy_to_clipboard(text)
-            wx.MessageBox("クリップリップボードにコピーしました。", "情報", wx.OK | wx.ICON_INFORMATION)
+            wx.MessageBox("クリップボードにコピーしました。", "情報", wx.OK | wx.ICON_INFORMATION)
         else:
             wx.MessageBox("コピーするテキストがありません。", "エラー", wx.OK | wx.ICON_ERROR)

@@ -1,27 +1,18 @@
 from datetime import datetime, timedelta
 import math
-
-# ユリウス年を計算する関数 https://ja.wikipedia.org/wiki/ユリウス年
-def julian_day(date):
-    y = date.year
-    m = date.month
-    d = date.day
-    if m <= 2:
-        y -= 1
-        m += 12
-    A = math.floor(y / 100)
-    B = 2 - A + math.floor(A / 4)
-    return math.floor(365.25 * (y + 4716)) + math.floor(30.6001 * (m + 1)) + d + B - 1524.5
+import ephem
 
 # 月齢を計算する関数
-def calculate_moon_age(date=None):
+def get_moon_age(date=None):
     if date is None:
-        date = datetime.now()
-    jd = julian_day(date)
-    T = (jd - 2451550.1) / 36525
-    T2 = T * T
-    T3 = T2 * T
-    M = 134.9634 + 477198.8675 * T + 0.0087211 * T2 + T3 / 69699 - T3 / 14712000
-    M = M % 360
-    M = round((M/360)*29.53058867, 2)
-    return M
+        date = datetime.utcnow()
+    observer = ephem.Observer()
+    observer.date = date.strftime('%Y/%m/%d')
+    # 最後の新月の日時を取得
+    last_new_moon = ephem.previous_new_moon(observer.date)
+    # 指定された日付と最後の新月の日時の差を計算
+    moon_age = observer.date - last_new_moon
+    # 月齢を日数で返す
+    return moon_age
+
+# print(get_moon_age())
