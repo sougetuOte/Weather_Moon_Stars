@@ -4,7 +4,7 @@ from moon_age import get_moon_age
 from astrology import get_moon_sign
 from clipboard import copy_to_clipboard
 from datetime import datetime
-from config import read_config
+from config import app_config
 
 # 天気予報を表示するGUI
 class WeatherForecastFrame(wx.Frame):
@@ -17,9 +17,14 @@ class WeatherForecastFrame(wx.Frame):
         hbox1 = wx.BoxSizer(wx.HORIZONTAL)
         self.st1 = wx.StaticText(panel, label="都市名:")
         hbox1.Add(self.st1, flag=wx.RIGHT, border=8)
-        self.tc = wx.TextCtrl(panel, value="東京都")
-        hbox1.Add(self.tc, proportion=1)
+        city_name = app_config.get('LastSearch','CITY_NAME')
+        if city_name is None:
+            city_name = '東京都'
+        self.tc = wx.TextCtrl(panel, value=city_name, style=wx.TE_PROCESS_ENTER)
+        hbox1.Add(self.tc, proportion=1, flag=wx.EXPAND)
         vbox.Add(hbox1, flag=wx.EXPAND | wx.LEFT | wx.RIGHT | wx.TOP, border=10)
+        # ENTERキーが押されたときにon_searchメソッドを実行するようにバインド
+        self.tc.Bind(wx.EVT_TEXT_ENTER, self.on_search)        
 
         vbox.Add((-1, 10))
 
@@ -49,7 +54,7 @@ class WeatherForecastFrame(wx.Frame):
         designated_date =  datetime.today()  # ローカルな現在の日付と時刻を取得
         formatted_date = designated_date.strftime('%Y/%m/%d %H:%M:%S')  # 秒までの表示にフォーマット
 
-        API_KEY, _ = read_config()
+        API_KEY = app_config.get('OpenWeather','API_KEY')
 
         forecast =  get_weather_forcast(city_name,designated_date,API_KEY)
         moon_age = get_moon_age()
@@ -59,6 +64,7 @@ class WeatherForecastFrame(wx.Frame):
             self.st2.SetValue(f"{city_name}の天気予報 ({formatted_date}):\n{forecast}\n\n月齢: {moon_age:.2f}\n月の{moon_astrology_name}: {moon_astrology_desc}")
         else:
             wx.MessageBox("天気予報の取得に失敗しました。", "エラー", wx.OK | wx.ICON_ERROR)
+        app_config.set('LastSearch', 'CITY_NAME', city_name)
 
     def on_copy(self, event):
         text = self.st2.GetValue()  # st2からテキストを取得するためにGetValueを使用

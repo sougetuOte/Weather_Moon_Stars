@@ -1,10 +1,10 @@
 import json
-from config import read_config
+from config import app_config
 import ephem
 
 # 星座データを読み込む
 def load_astrology_data():
-    _, astrology_data_file = read_config()
+    astrology_data_file = app_config.get('Astrology','ASTROLOGY_DATA_FILE')
     with open(astrology_data_file, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -31,4 +31,4 @@ def determine_sign(longitude):
 
 # 現在の月星座とその解説を取得する例
 sign, description = get_moon_sign()
-print(f"月星座: {sign}, 解説: {description}\n")
+# print(f"月星座: {sign}, 解説: {description}\n")

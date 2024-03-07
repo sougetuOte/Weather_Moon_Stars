@@ -1,11 +1,23 @@
 import configparser
 
-# iniファイルから設定を読み込む
-def read_config():
-    config = configparser.ConfigParser()
-    config.read("app_config.ini")
+class AppConfig:
+    def __init__(self):
+        self.config = configparser.ConfigParser()
+        self.config.read('app_config.ini', encoding='utf-8')
 
-    api_key = config.get("OpenWeather", "API_KEY")
-    astrology_data_file = config.get("Astrology", "ASTROLOGY_DATA_FILE")
+    def get(self, section, option):
+        if self.config.has_section(section) and self.config.has_option(section, option):
+            return self.config.get(section, option)
+        else:
+            return None
 
-    return api_key, astrology_data_file
+    def set(self, section, option, value):
+        if not self.config.has_section(section):
+            self.config.add_section(section)
+        self.config.set(section, option, value)
+        with open('app_config.ini', 'w', encoding='utf-8') as configfile:
+            self.config.write(configfile)
+        
+
+# グローバル設定オブジェクトの作成
+app_config = AppConfig()

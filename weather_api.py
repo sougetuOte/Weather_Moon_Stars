@@ -1,6 +1,6 @@
 import requests
 from datetime import datetime, timedelta
-from config import read_config
+from config import app_config
 
 '''
 OpenWeather(https://openweathermap.org/)のAPI_KEYを利用して現在から１時間ごと、
@@ -11,9 +11,9 @@ API_KEYはconfig.pyを経由し、app_config.iniから取得する。
 与えられる日付時刻がローカルであることに注意
 '''
 def main(city_name,designated_date):
-    API_KEY, _ = read_config()
+    API_KEY=app_config.get('OpenWeather','API_KEY')
     result = get_weather_forcast(city_name,designated_date,API_KEY)
-    print(result)
+    #print(result)
 
 def get_current_weather(city_name, API_KEY):
     # 現在の天気情報を取得するAPIのエンドポイント
@@ -83,7 +83,7 @@ def get_weather_forcast(city_name,designated_date,API_KEY):
     return "\n".join(forecasts)
     
 if __name__ == "__main__":
-    city_name="都城市"
+    city_name="東京都"
     dt = datetime.today()  # ローカルな現在の日付と時刻を取得
     # print(dt)
     main(city_name,dt)
