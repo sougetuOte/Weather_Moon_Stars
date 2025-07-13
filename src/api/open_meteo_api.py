@@ -159,8 +159,35 @@ def format_weather_data(weather_data: Dict, city_name: str) -> str:
         # フォーマット済み結果
         result_lines = [f"{city_name}の天気予報 ({current_time.strftime('%Y/%m/%d %H:%M')}):"]
         
-        # 24時間分のデータを処理
-        for i in range(min(24, len(times))):
+        # 現在の天気を最初に表示
+        if len(times) > 0:
+            # 現在の時刻に最も近いデータを探す
+            current_hour = current_time.hour
+            closest_index = 0
+            for i in range(len(times)):
+                dt = datetime.fromisoformat(times[i].replace('T', ' '))
+                if dt.hour >= current_hour:
+                    closest_index = i
+                    break
+            
+            # 現在の天気
+            temp = temperatures[closest_index]
+            precip_prob = precipitation_probs[closest_index] if precipitation_probs[closest_index] is not None else 0
+            weather_code = weather_codes[closest_index]
+            wind_speed = wind_speeds[closest_index] if wind_speeds[closest_index] is not None else 0
+            humidity = humidities[closest_index] if humidities[closest_index] is not None else 0
+            weather_desc = convert_wmo_code(weather_code)
+            
+            result_lines.append(f"現在の天気: {weather_desc}")
+            result_lines.append(f"気温: {temp}°C")
+            result_lines.append(f"降水確率: {precip_prob}%")
+            result_lines.append(f"風速: {wind_speed}m/s")
+            result_lines.append(f"湿度: {humidity}%")
+            result_lines.append("")  # 空行
+            result_lines.append("--- 3時間ごとの予報 ---")
+        
+        # 3時間ごとのデータを処理（24時間分 = 8データポイント）
+        for i in range(0, min(24, len(times)), 3):
             time_str = times[i]
             temp = temperatures[i]
             precip_prob = precipitation_probs[i] if precipitation_probs[i] is not None else 0
@@ -170,13 +197,13 @@ def format_weather_data(weather_data: Dict, city_name: str) -> str:
             
             # 時刻フォーマット変換
             dt = datetime.fromisoformat(time_str.replace('T', ' '))
-            time_formatted = dt.strftime('%Y-%m-%d %H:%M')
+            time_formatted = dt.strftime('%H時')
             
             # 天気説明
             weather_desc = convert_wmo_code(weather_code)
             
-            # 1行にまとめて表示
-            line = f"{time_formatted} - 温度: {temp}°C, 天気: {weather_desc}, 降水確率: {precip_prob}%, 風速: {wind_speed}m/s, 湿度: {humidity}%"
+            # 1行にまとめて表示（簡潔に）
+            line = f"{time_formatted}: {weather_desc} {temp}°C 降水{precip_prob}% 風{wind_speed}m/s"
             result_lines.append(line)
         
         return "\n".join(result_lines)
