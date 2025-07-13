@@ -1,44 +1,70 @@
-# Window to the Sky
-A program that displays the weather forecast for Japan, the moon constellations, and their explanations.
+# 🌤️ Window to the Sky (Weather Moon Stars)
 
-# How to get it
-https://github.com/sougetuOte/Weather_Moon_Stars
-You can git clone or download the zip file from
-You can also download the zip file from https://www.amateur-magician.life/
-You can also download the zip file from .
-If you are not familiar with the Internet, this may be easier.
+> **Accurate weather forecasts and beautiful celestial information from one window**
 
-# License
-Copyright (c) 2023 sougetuOte
-Released under the MIT license
+## 💡 Overview
+
+A desktop application that beautifully integrates high-precision weather forecasts with moon phase and zodiac information.  
+With the adoption of Open-Meteo API, we have achieved accurate weather forecasts even for detailed addresses like **Chiyoda-ku, Tokyo** or **Kita-ku, Osaka**.
+
+### ✨ Key Features
+
+- 🌡️ **High-Precision Weather**: Temperature, humidity, wind speed, and precipitation for the next 24 hours
+- 🌙 **Celestial Information**: Real-time moon age calculation and current moon zodiac position
+- 📋 **Convenient Features**: One-click copy to clipboard
+- 🔍 **Detailed Address Support**: Supports district-level precision for major Japanese cities
+
+## 🚀 How to Use
+
+### For exe Version (Distribution)
+
+1. **Launch**: Double-click `お空の窓.exe`
+2. **Enter City**: Type city name in the text box (e.g., Shibuya-ku Tokyo, Kita-ku Osaka)
+3. **Search**: Click "実行" button or press Enter
+4. **View Results**: Weather forecast and moon/zodiac information will be displayed
+5. **Copy**: Click "コピー" button to copy results to clipboard
+
+**Note**: No API key required. Internet connection is necessary.
+
+### For Development Version (Source Code)
+
+Please refer to `install_dev_en.txt` for details.
+
+## 📊 Feature Details
+
+### Weather Forecast
+- Current weather conditions
+- 24-hour forecast in 3-hour intervals
+- Temperature, precipitation probability, wind speed, and humidity
+
+### Celestial Information
+- Moon age (to 2 decimal places)
+- Current moon zodiac position
+- Zodiac description
+
+## 🔧 Technical Specifications
+
+- **Weather Data**: Open-Meteo API (Free, no API key required)
+- **Celestial Calculations**: High-precision calculations using ephem library
+- **GUI**: Cross-platform support with wxPython
+- **Language**: Python 3.12
+
+## 📝 License
+
+Copyright (c) 2023-2025 sougetuOte  
+Released under the MIT license  
 https://opensource.org/licenses/mit-license.php
 
-# Usage
-This is a program to get weather forecasts, moon constellations, and their explanations. I made this program because it is troublesome to look up and copy and paste the information when writing a diary.
-When you enter a city name in Japanese or alphabet and press a button, the weather forecast, moon constellations, and their explanations are output to the text area and clipboard.
-That's all there is to it.
+## 📞 Contact
 
-# Caution
-It uses OpenWeather( https://openweathermap.org/ ) API, so users need to get APIKEY and register it.
-To be honest, the accuracy is low. I really wanted to be able to use JMA data, but I was disappointed. Information wanted.
+- **GitHub**: https://github.com/sougetuOte/Weather_Moon_Stars
+- **Email**: magician@amateur-magician.life
 
-# How to use
-Installation instructions are in install.txt
-After starting the program, enter the name of the city and specify the date of the data you want. Finally, press the button and the data will be pasted into the text area and clipboard.
+## 🙏 Acknowledgments
 
-# File Structure
-main.py: Entry point for the application; initializes and executes the GUI.
-weather_gui.py: Defines the GUI using wxPython.
-weather_api.py: Retrieve XML data from JMA and parse it to get weather information.
-moon_age.py: provides the logic for calculating the age of the moon.
-astrology.py: Provides astrological moon signs and explanations. astrology.py: reads external text files.
-clipboard.py: provides utilities to copy text to the clipboard.
-config.py: Provides application configuration information. This includes the path to external text files.
-astrology_data.json: Contains data about astrology constellations.
-app_config.ini:Contains the OpenWeather API key and the file name of the astrology data.
-README.md: This file.
-INSTALL.txtInstallation instructions are described.
+- Open-Meteo: For providing high-precision weather data
+- ephem: For accurate celestial calculation library
+- wxPython: For the beautiful GUI framework
 
-# Contact
-Twitter: https://twitter.com/ETM08214742
-e-mail: magician@amateur-magician.life
+---
+*Last updated: January 2025*

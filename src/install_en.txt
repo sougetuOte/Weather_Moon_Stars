@@ -1,14 +1,111 @@
-There are two installation methods.
+# Window to the Sky Installation Guide
 
-1. If you downloaded osorano-mado.zip
-1-1. Unzip the zip file and place all files in the same folder.
-1-2. Get the API_KEY of OpenWeather and save it in app_config.ini. Please search on the net how to get the API_KEY.
-1-3. After starting the program, enter the name of the city and specify the date of the data you want. Finally, press the button and the data will be pasted into the text area and clipboard.
+## 🎯 exe Version (Recommended)
 
-2. When clone from GitHub
-2-1. Create a python environment. 3 or newer is recommended.
-2-2. Install wxPython with the following command. (This is for Windows)
-    pip install -U wxPython
-2-3. Install any missing modules.
-2-4. Get API_KEY of OpenWeather and save it in app_config.ini.
-2-5. After starting the program from main.py, enter the name of the city and specify the date for the data you want. Finally, press the button and the data will be pasted into the text area and clipboard.
+### Requirements
+- Windows 10/11
+- Internet connection
+
+### Installation Steps
+
+1. **Download**
+   - Download the latest `WeatherMoonStars_vX.X.zip` from GitHub Releases page
+   - Or download from https://www.amateur-magician.life/
+
+2. **Extract**
+   - Extract the downloaded zip file to any folder
+   - Folder structure after extraction:
+     ```
+     WeatherMoonStars/
+     ├── お空の窓.exe
+     ├── README_ja.txt
+     ├── README_en.txt
+     └── data/
+         └── astrology_data.json
+     ```
+
+3. **Run**
+   - Double-click `お空の窓.exe` to launch
+   - **No API key configuration required** (Open-Meteo API is free)
+
+4. **If Security Warning Appears**
+   - Click "More info"
+   - Click "Run anyway"
+   - (This app is safe. Add to antivirus exceptions if needed)
+
+## 🔧 Development Version (Run from Source)
+
+### Requirements
+- Python 3.10 or higher (recommended: 3.12)
+- Git (optional)
+
+### Installation Steps
+
+1. **Get Source Code**
+   ```bash
+   git clone https://github.com/sougetuOte/Weather_Moon_Stars.git
+   cd Weather_Moon_Stars
+   ```
+   
+   Or download zip from GitHub
+
+2. **Setup Python Environment**
+   ```bash
+   # Create virtual environment (recommended)
+   python -m venv venv
+   
+   # Windows
+   venv\Scripts\activate
+   
+   # Mac/Linux
+   source venv/bin/activate
+   ```
+
+3. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+   
+   Main dependencies:
+   - wxPython
+   - requests
+   - ephem
+   - geopy
+
+4. **Run**
+   ```bash
+   cd src
+   python main.py
+   ```
+
+## 🚨 Troubleshooting
+
+### exe Version Won't Start
+- Antivirus software may be blocking it
+- Temporarily disable or add to exceptions
+
+### "Error occurred while fetching weather information"
+- Check your internet connection
+- Verify firewall isn't blocking the app
+
+### wxPython Installation Fails
+- For Windows:
+  ```bash
+  pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-20.04 wxPython
+  ```
+- For Mac/Linux, refer to official documentation
+
+## 📝 Notes
+
+- **No API Key Required**: Open-Meteo API is free and keyless
+- **Internet Required**: For fetching weather data
+- **Japan Only**: Does not support cities outside Japan
+
+## 🆘 Support
+
+If problems persist:
+- GitHub Issues: https://github.com/sougetuOte/Weather_Moon_Stars/issues
+- Email: magician@amateur-magician.life
+
+---
+Last updated: January 2025

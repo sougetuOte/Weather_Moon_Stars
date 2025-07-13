@@ -30,10 +30,8 @@ Open-Meteo APIの採用により、**東京都千代田区**や**東京都渋谷
 
 ## 🖼️ スクリーンショット
 
-<!-- スクリーンショットを追加する場合は、以下のコメントを解除して画像パスを設定してください
 ![メイン画面](docs/images/screenshot_main.png)
 ![天気予報表示](docs/images/screenshot_weather.png)
--->
 
 ## 🎯 なぜ「お空の窓」？
 

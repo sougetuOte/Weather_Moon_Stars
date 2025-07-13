@@ -22,7 +22,10 @@
       "Bash(git reset:*)",
       "Bash(git commit:*)",
       "Bash(git rm:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(del test_new_service.py test_gui_new_service.py)",
+      "Bash(pyenv local:*)",
+      "Bash(\"./お空の窓.exe\")"
     ],
     "deny": []
   }

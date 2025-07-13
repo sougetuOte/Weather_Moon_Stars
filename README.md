@@ -30,10 +30,8 @@ By adopting the Open-Meteo API, we've achieved accurate weather forecasts even f
 
 ## 🖼️ Screenshots
 
-<!-- To add screenshots, uncomment the following lines and set the image paths
 ![Main Window](docs/images/screenshot_main.png)
 ![Weather Forecast Display](docs/images/screenshot_weather.png)
--->
 
 ## 🎯 Why "Weather Moon Stars"?
 
