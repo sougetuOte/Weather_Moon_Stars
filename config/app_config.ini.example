@@ -1,0 +1,8 @@
+[OpenWeather]
+api_key = YOUR_API_KEY_HERE
+
+[Astrology]
+astrology_data_file = astrology_data.json
+
+[LastSearch]
+city_name = 都城市

@@ -1,50 +1,72 @@
+# Claude Code キャッシュファイル
+.ccache/
+*.cache
+
+# python
 .venv/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependencies
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Build outputs
+dist/
 build/
-weather_test.py
-__pycache__/astrology.cpython-39.pyc
-__pycache__/clipboard.cpython-39.pyc
-__pycache__/config.cpython-39.pyc
-__pycache__/moon_age.cpython-39.pyc
-__pycache__/weather_api.cpython-39.pyc
-__pycache__/weather_gui.cpython-39.pyc
-weather_json_test.py
-weather_json_test2.py
-weather_json_test3.py
-weather_json_test4.py
-星座と月齢.txt
-class10s.json
-class15s.json
-class20s.json
-astrology_data copy.json
-area copy.json
-area_json.py
-area_test.json
-area.json
-app_config copy.ini
-app_config copy 2.ini
-osorano-mado.spec
-build/osorano-mado/Analysis-00.toc
-build/osorano-mado/base_library.zip
-build/osorano-mado/osorano-mado.exe.manifest
-build/osorano-mado/osorano-mado.pkg
-build/osorano-mado/PKG-00.toc
-build/osorano-mado/PYZ-00.pyz
-build/osorano-mado/PYZ-00.toc
-build/osorano-mado/warn-osorano-mado.txt
-build/osorano-mado/xref-osorano-mado.html
-build/osorano-mado/localpycs/pyimod01_archive.pyc
-build/osorano-mado/localpycs/pyimod02_importers.pyc
-build/osorano-mado/localpycs/pyimod03_ctypes.pyc
-build/osorano-mado/localpycs/pyimod04_pywin32.pyc
-build/osorano-mado/localpycs/struct.pyc
-dist/osorano-mado.exe.notanexecutable
-build/osorano-mado/EXE-00.toc
-dist/osorano-mado.exe
-.gitignore
-dist/app_config.ini
-dist/astrology_data.json
-dist/install_en.txt
-dist/install.txt
-dist/README.md
-dist/READMEen.md
-dist/osorano-mado.zip
+*.egg-info/
+target/
+bin/
+obj/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Package files
+*.tar.gz
+*.zip
+*.rar
+*.7z
+
+# IDE workspace files
+*.code-workspace
+.vscode/settings.json
+
+# Project specific ignores
+# Add your project-specific files here
+
+# API設定ファイル（秘密情報を含む）
+config/app_config.ini
