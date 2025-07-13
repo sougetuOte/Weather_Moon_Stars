@@ -7,7 +7,7 @@
 ## 💡 No more inaccurate weather forecasts
 
 A desktop application that beautifully integrates high-precision weather forecasts with moon phase and zodiac sign information.  
-By adopting the Open-Meteo API, we've achieved accurate weather forecasts even for detailed addresses like **Kamihagaimachi, Miyakonojo City**.
+By adopting the Open-Meteo API, we've achieved accurate weather forecasts even for detailed addresses like **Chiyoda Ward, Tokyo** or **Shibuya Ward, Tokyo**.
 
 ### ✨ Main Features
 
@@ -118,7 +118,7 @@ Weather_Moon_Stars/
 | Sapporo | 1.84s | ✅ Success |
 | Fukuoka | 1.84s | ✅ Success |
 | Naha | 1.83s | ✅ Success |
-| **Kamihagaimachi, Miyakonojo** | 1.87s | ✅ Success |
+| **Chiyoda, Tokyo** | 1.87s | ✅ Success |
 
 Average response time: **1.84 seconds** (37% of 5-second limit)
 
@@ -165,5 +165,5 @@ This project is released under the MIT License.
 </p>
 
 <p align="center">
-  <sub>For everyone who seeks accurate weather forecasts even for detailed addresses ❤️</sub>
+  <sub>For everyone who seeks accurate weather forecasts even for ward-level addresses ❤️</sub>
 </p>
