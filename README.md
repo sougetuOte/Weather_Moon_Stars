@@ -28,10 +28,25 @@ By adopting the Open-Meteo API, we've achieved accurate weather forecasts even f
 - Simple and beautiful GUI
 ```
 
+## 🖼️ Screenshots
+
+<!-- To add screenshots, uncomment the following lines and set the image paths
+![Main Window](docs/images/screenshot_main.png)
+![Weather Forecast Display](docs/images/screenshot_weather.png)
+-->
+
 ## 🎯 Why "Weather Moon Stars"?
 
 ### 📍 **Detailed Address Support**
 Provides accurate weather forecasts even for detailed place names like "Kamihagaimachi, Miyakonojo City". No more "Your area is not supported" messages.
+
+**Examples of supported detailed addresses:**
+- Kamihagaimachi, Miyakonojo City (Miyazaki) ✅
+- Utsukushigaoka, Aoba Ward, Yokohama (Kanagawa) ✅
+- Odori-nishi, Chuo Ward, Sapporo (Hokkaido) ✅
+- Kiyomizu, Higashiyama Ward, Kyoto (Kyoto) ✅
+
+For large municipalities, you can specify down to the ward or district level!
 
 ### 🆓 **Completely Free**
 No API key required. Thanks to the Open-Meteo API, it's permanently free to use.
