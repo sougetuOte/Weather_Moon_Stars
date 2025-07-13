@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(mv:*)",
+      "Bash(mkdir:*)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(python:*)",
+      "WebFetch(domain:qiita.com)",
+      "Bash(echo $PATH)",
+      "Bash(where pyenv)",
+      "Bash(conda:*)",
+      "Bash(where python)",
+      "Bash(C:micromambapython.exe --version)",
+      "Bash(\"/c/micromamba/python.exe\" --version)",
+      "Bash(pip install:*)",
+      "Bash(timeout 15 conda run:*)",
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(tree:*)",
+      "Bash(git reset:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": []
+  }
+}
