@@ -25,7 +25,12 @@
       "Bash(git push:*)",
       "Bash(del test_new_service.py test_gui_new_service.py)",
       "Bash(pyenv local:*)",
-      "Bash(\"./お空の窓.exe\")"
+      "Bash(\"./お空の窓.exe\")",
+      "Bash(git tag:*)",
+      "Bash(powershell:*)",
+      "Bash(gh release create:*)",
+      "Bash(winget install:*)",
+      "Bash(gh auth:*)"
     ],
     "deny": []
   }
